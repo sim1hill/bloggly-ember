@@ -4,6 +4,7 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp();
 
+app.import('vendor/bootstrap.css');
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
@@ -18,3 +19,4 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 module.exports = app.toTree();
+
