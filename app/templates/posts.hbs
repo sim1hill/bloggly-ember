@@ -1,6 +1,8 @@
-
-<div> {{input value=name height="80" rows="6" action="getGif"}}</div><br>
-
-
+<center>
+<div> 
+{{input value=name size="75" rows="6" action="getGif"}}<br><br>
+<button {{action 'deleteButton'}}>Delete GIFs</button>
+</div><br>
 <div id="blog-content">{{name}}</div>
 <div id="new-gif"></div>
+</center>

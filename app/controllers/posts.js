@@ -5,27 +5,28 @@ export default Ember.Controller.extend({
   
   actions: {
     getGif: function(){
-      var gifsearchwords = $('#blog-content').text();
-      var searchslug = "";
-      if (gifsearchwords.split(" ").length > 0){
-        // debugger;
-        searchslug = gifsearchwords.split(" ").pop();
-        if (searchslug === "," || searchslug === "." || searchslug === "!" || searchslug === "?"){
-          searchslug = gifsearchwords.split(" ").slice(-1,-1);
-        }
+      if ($('input').val() === ""){
+        alert("Nice try...type something first!");
       } else {
-        searchslug = gifsearchwords
-      }
-      $.getJSON("http://localhost:3000/gifs?q=" + searchslug + "&format=json", function(result){
-              // debugger;
-       var embedGif = result['urls'][0]
-        $('#new-gif').append('<img src=' + embedGif + '>');
+        var gifsearchwords = $('#blog-content').text();
+        var searchslug = "";
+        if (gifsearchwords.split(" ").length > 0){
+          
+          searchslug = gifsearchwords.split(" ").pop();
+          if (searchslug === "," || searchslug === "." || searchslug === "!" || searchslug === "?"){
+            searchslug = gifsearchwords.split(" ").slice(-1,-1);
+          }
+        } else {
+          searchslug = gifsearchwords
+        }
+        $.getJSON("http://localhost:3000/gifs?q=" + searchslug + "&format=json", function(result){
+         var embedGif = result['urls'][0];
+        $('#new-gif').append('<img src=' + embedGif + '>&nbsp');
       })
-      // $.ajax(
-      //   url: "http://reddit.com/r/node.json?jsonp=?",
-      //   method: "GET",
-      //   dataType: "jsonp"
-      // });
-    }
+      }
+    }, //end of getGIF action
+  deleteButton: function(){
+    $('#new-gif').empty();  
+  }
   }
 });
