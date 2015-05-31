@@ -30,15 +30,25 @@ export default Ember.Controller.extend({
   },
 
   savePost: function(){
-    var title = $('#blog-content h4')
-    var copy = $('#blog-content p')
-    var gifs = $('#new gif img')
-    debugger;
-    // $.post("http://localhost:3000/gifs", {title: title, content: copy, gifs: gifs })
+    var title = $('#blog-content h4').text();
+    var copy = $('#blog-content p').text();
+    var gifs = $('#new-gif')
+    $.post("http://localhost:3000/gifs", {post:{title: title, content: copy}})
+    .done(function(response){
+      response["posts"].forEach(function(post){
+        $('#past-posts').append('<h4>' + post['title'] + '</h4><p>' + post['content'] + '</p>')
+      })
+      
+    })
+
 
   },
 
   title: function(){
+
+  },
+
+  deleteOneGif: function(){
 
   }
   }
