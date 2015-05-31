@@ -30,6 +30,11 @@ export default Ember.Controller.extend({
   },
 
   savePost: function(){
+    var title = $('#blog-content h4')
+    var copy = $('#blog-content p')
+    var gifs = $('#new gif img')
+    debugger;
+    // $.post("http://localhost:3000/gifs", {title: title, content: copy, gifs: gifs })
 
   },
 
