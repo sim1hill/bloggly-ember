@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
           searchslug = gifsearchwords
         }
         $.getJSON("http://localhost:3000/gifs?q=" + searchslug + "&format=json", function(result){
-         var embedGif = result['urls'][0];
+         var embedGif = result['urls'][Math.floor(Math.random()*result['urls'].length)];
         $('#new-gif').append('<img src=' + embedGif + '>&nbsp');
       })
       }
