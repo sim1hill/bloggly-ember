@@ -1,8 +1,10 @@
 <center>
 <div> 
-{{input value=name size="75" rows="6" action="getGif"}}<br><br>
-<button {{action 'deleteButton'}}>Delete GIFs</button>
+{{input value=title size="30" rows="6" id="inputLarge" action="title"}}<br><br>
+{{input value=name rows="6" class="form-control input-lg" action="getGif"}}<br><br>
+<button {{action 'deleteButton'}} class="btn btn-danger">Delete GIFs</button>
+<button {{action 'savePost'}}class="btn btn-primary">Save Post</button>
 </div><br>
-<div id="blog-content">{{name}}</div>
+<div id="blog-content"><h4>{{title}}</h4><p>{{name}}</p></div>
 <div id="new-gif"></div>
 </center>

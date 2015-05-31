@@ -5,10 +5,10 @@ export default Ember.Controller.extend({
   
   actions: {
     getGif: function(){
-      if ($('input').val() === ""){
+      if ($('input.form-control input-lg').val() === ""){
         alert("Nice try...type something first!");
       } else {
-        var gifsearchwords = $('#blog-content').text();
+        var gifsearchwords = $('#blog-content p').text();
         var searchslug = "";
         if (gifsearchwords.split(" ").length > 0){
           
@@ -27,6 +27,14 @@ export default Ember.Controller.extend({
     }, //end of getGIF action
   deleteButton: function(){
     $('#new-gif').empty();  
+  },
+
+  savePost: function(){
+
+  },
+
+  title: function(){
+
   }
   }
 });
