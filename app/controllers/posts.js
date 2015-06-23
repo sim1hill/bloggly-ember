@@ -1,16 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  // init: function(){
 
-  //   $.get("http://localhost:3000/gifs")
-  //   .done(function(response){
-  //     response["posts"].forEach(function(post){
-  //       $('.list-group a').append('<h4 class="list-group-item-heading">' + post['title'] + '</h4>');
-  //       $('.list-group a').append('<p class="list-group-item-text">' + post['content'] + '</p>');
-        
-  //     })
-  // },
 
 
   
@@ -21,14 +12,7 @@ export default Ember.Controller.extend({
       } else {
         var gifsearchwords = $('#blog-content p').text();
         var searchslug = "";
-      //   if (gifsearchwords.includes("#")){
-
-      //     gifsearchwords.split("#").pop();
-      //     $.getJSON("http://localhost:3000/gifs?q=" + searchslug + "&format=json", function(result){
-      //     var embedGif = result['urls'][Math.floor(Math.random()*result['urls'].length)];
-      //     $('#new-gif').append('<img src=' + embedGif + '>&nbsp');
-      // })
-        // }
+  
         if (gifsearchwords.split(" ").length > 0){
           
           searchslug = gifsearchwords.split(" ").pop();
