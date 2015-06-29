@@ -63,7 +63,7 @@ export default Ember.Controller.extend({
   },
 
   deleteOneGif: function(){
-
+    $('#new-gif').children().last().replaceWith("");
   }
   }
 });

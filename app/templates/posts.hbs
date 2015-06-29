@@ -2,7 +2,8 @@
 <div> 
 {{input value=title size="30" rows="6" id="inputLarge" action="title"}}<br><br>
 {{input value=name rows="6" class="form-control input-lg" action="getGif"}}<br><br>
-<button {{action 'deleteButton'}} class="btn btn-danger">Delete GIFs</button>
+<button {{action 'deleteOneGif'}} class="btn btn-warning">Delete Last GIF</button>
+<button {{action 'deleteButton'}} class="btn btn-danger">Delete All GIFs</button>
 <button {{action 'savePost'}}class="btn btn-primary">Save Post</button>
 </div><br>
 <div id="blog-content"><h4>{{title}}</h4><p>{{name}}</p></div>
