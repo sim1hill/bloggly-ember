@@ -45,13 +45,12 @@ export default Ember.Controller.extend({
   savePost: function(){
     var title = $('#blog-content h4').text();
     var copy = $('#blog-content p').text();
-    // var gif = $('#new-gif img').attr();
     $.post("http://localhost:3000/gifs", {post:{title: title, content: copy}})
     .done(function(response){
-      debugger;
-      
        $('.list-group').append('<a href="#" class="list-group-item"><h4 class="list-group-item-heading">' + response["post"]['title'] + '</h4>' + '<p class="list-group-item-text">' + response["post"]['content'] + '</p></a>');
-        
+       $('#ember364').val("");
+       $('#inputLarge').val("");
+       $('.modal').toggle();
       
     });
 
@@ -60,6 +59,10 @@ export default Ember.Controller.extend({
 
   title: function(){
 
+  },
+
+  toggleModal: function(){
+    $('.modal').toggle();
   },
 
   deleteOneGif: function(){

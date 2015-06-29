@@ -4,7 +4,7 @@
 {{input value=name rows="6" class="form-control input-lg" action="getGif"}}<br><br>
 <button {{action 'deleteOneGif'}} class="btn btn-warning">Delete Last GIF</button>
 <button {{action 'deleteButton'}} class="btn btn-danger">Delete All GIFs</button>
-<button {{action 'savePost'}}class="btn btn-primary">Save Post</button>
+<button {{action 'toggleModal'}}class="btn btn-primary">Save Post</button>
 </div><br>
 <div id="blog-content"><h4>{{title}}</h4><p>{{name}}</p></div>
 <div id="new-gif"></div>
@@ -15,4 +15,19 @@
 <p class="list-group-item-text">This is just a snippet of content about all kinds of cool things!</p>
 </a> 
 </div>
-
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">Are you sure you want to save this post?</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button {{action 'toggleModal'}} type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button {{action 'savePost'}} type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
