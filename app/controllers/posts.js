@@ -2,6 +2,16 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+  init: function(){
+
+    $.get("http://localhost:3000/saved-posts", function (response){
+      response['posts'].forEach(function(post){
+      $('.list-group').append('<a href="#" class="list-group-item"><h4 class="list-group-item-heading">' + post['title'] + '</h4>' + '<p class="list-group-item-text">' + post['content'] + '</p></a>');
+
+      });
+    });
+  },
+
 
 
   
@@ -20,12 +30,12 @@ export default Ember.Controller.extend({
             searchslug = gifsearchwords.split(" ").slice(-1,-1);
           }
         } else {
-          searchslug = gifsearchwords
+          searchslug = gifsearchwords;
         }
         $.getJSON("http://localhost:3000/gifs?q=" + searchslug + "&format=json", function(result){
          var embedGif = result['urls'][Math.floor(Math.random()*result['urls'].length)];
         $('#new-gif').append('<img src=' + embedGif + '>&nbsp');
-      })
+      });
       }
     }, //end of getGIF action
   deleteButton: function(){
@@ -38,13 +48,12 @@ export default Ember.Controller.extend({
     // var gif = $('#new-gif img').attr();
     $.post("http://localhost:3000/gifs", {post:{title: title, content: copy}})
     .done(function(response){
-      response["posts"].forEach(function(post){
-        $('.list-group').append('<a href="#" class="list-group-item"><h4 class="list-group-item-heading">' + post['title'] + '</h4>');
-        $('.list-group a').append('<p class="list-group-item-text">' + post['content'] + '</p></a>');
-        
-      })
+      debugger;
       
-    })
+       $('.list-group').append('<a href="#" class="list-group-item"><h4 class="list-group-item-heading">' + response["post"]['title'] + '</h4>' + '<p class="list-group-item-text">' + response["post"]['content'] + '</p></a>');
+        
+      
+    });
 
 
   },
