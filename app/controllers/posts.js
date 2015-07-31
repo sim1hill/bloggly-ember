@@ -57,10 +57,6 @@ export default Ember.Controller.extend({
 
   },
 
-  title: function(){
-
-  },
-
   toggleModal: function(){
     $('.modal').toggle();
   },

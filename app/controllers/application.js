@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  appName: 'This could be anything'
+  appName: 'Bloggly'
 
 
 });
